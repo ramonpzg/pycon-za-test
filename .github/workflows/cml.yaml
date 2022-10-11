@@ -17,7 +17,7 @@ jobs:
           dvc dag
           dvc repro
 
-          echo "# My Report" > report.md
-          cat metrics.json >> report.md
-          cat dvc dag >> report.md
-          cml send-comment report.md
+          # echo "# My Report" > report.md
+          # cat metrics.json >> report.md
+          # cat dvc dag >> report.md
+          # cml send-comment report.md
