@@ -5,3 +5,34 @@ stages:
     - src/get_data.py
     outs:
     - data/02_part/raw/SeoulBikeData.csv
+  prepare:
+    cmd: python src/prepare_data.py
+    deps:
+    - data/02_part/raw/SeoulBikeData.csv
+    - src/prepare_data.py
+    outs:
+    - data/02_part/interim/clean_data.parquet
+  split_data:
+    cmd: python src/split_data.py
+    deps:
+    - data/02_part/interim/clean_data.parquet
+    - src/split_data.py
+    outs:
+    - data/02_part/processed/test.parquet
+    - data/02_part/processed/train.parquet
+  train:
+    cmd: python src/train_model.py
+    deps:
+    - data/02_part/processed/train.parquet
+    - src/train_model.py
+    outs:
+    - models/rf_model.pkl
+  evaluate:
+    cmd: python src/evaluate_model.py
+    deps:
+    - data/02_part/processed/test.parquet
+    - models/rf_model.pkl
+    - src/evaluate_model.py
+    metrics:
+    - reports/metrics.json:
+        cache: false

@@ -31,7 +31,7 @@ def save_data(data: DataFrame, data_path: Path, file_name: str) -> None:
 if __name__ == "__main__":
     
     # the path and files we need
-    path = Path().cwd().parent.joinpath('data', '02_part')
+    path = Path().cwd().joinpath('data', '02_part')
     raw_data_path = path.joinpath("raw", 'SeoulBikeData.csv')
     data_interim = path.joinpath("interim")
     file_name = 'clean_data.parquet'

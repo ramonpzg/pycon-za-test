@@ -28,7 +28,7 @@ def get_metrics(predictions, X_test_data, y_test_data, metrics_path):
 
 if __name__ == "__main__":
     
-    path = Path().cwd().parent
+    path = Path().cwd()
     model_path = path.joinpath('models', 'rf_model.pkl')
     metrics_path = path.joinpath("reports", 'metrics.json')
     test_path = path.joinpath("data", "02_part", 'processed', 'test.parquet')

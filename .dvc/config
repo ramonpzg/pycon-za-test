@@ -1,0 +1,5 @@
+[core]
+    remote = our_storage
+    autostage = true
+['remote "our_storage"']
+    url = ../data/remote_storage

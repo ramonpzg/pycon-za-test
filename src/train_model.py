@@ -24,7 +24,7 @@ def save_model(model, model_path, model_name):
 if __name__ == "__main__":
     
     # the paths we need
-    path = Path().cwd().parent
+    path = Path().cwd()
     train_data_path = path.joinpath("data", "02_part", 'processed', 'train.parquet')
     model_path = path.joinpath('models')
     model_name = 'rf_model.pkl'

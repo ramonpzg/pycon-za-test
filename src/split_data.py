@@ -16,7 +16,7 @@ def split_and_save_time_series_data(full_df, split_pct, data_path, train_file_na
 
 if __name__ == "__main__":
     
-    path = Path().cwd().parent.joinpath("data", "02_part")
+    path = Path().cwd().joinpath("data", "02_part")
     split_pct = 0.30
     
     data = pd.read_parquet(path.joinpath("interim", "clean_data.parquet"))
