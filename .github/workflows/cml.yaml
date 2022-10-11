@@ -14,6 +14,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
+          dvc remote add -d our_storage data/remote_storage
           dvc dag
           dvc repro
           dvc push
