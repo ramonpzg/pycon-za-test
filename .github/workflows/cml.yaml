@@ -13,8 +13,10 @@ jobs:
         run: |
           pip install -r requirements.txt
           
-          dvc repro
+          dvc dag
+          dvc repro --dry
 
           echo "# CML Report" > report.md
+          dvc dag >> report.md
           dvc metrics diff --show-md master >> report.md
           cml-send-comment report.md
