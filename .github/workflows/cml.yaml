@@ -17,6 +17,6 @@ jobs:
           dvc dag
           dvc repro
           echo "# My Report" > report.md
-          dvc metrics diff master --show-md >> report.md
+          dvc metrics diff --show-md master >> report.md
           cat dvc dag >> report.md
           cml send-comment report.md
