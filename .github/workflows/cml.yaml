@@ -16,6 +16,7 @@ jobs:
           pip install -r requirements.txt
           dvc dag
           dvc repro
+          dvc push
           echo "# My Report" > report.md
           dvc metrics diff --show-md master >> report.md
           dvc dag >> report.md
