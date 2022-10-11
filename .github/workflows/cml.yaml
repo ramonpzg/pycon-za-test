@@ -16,6 +16,7 @@ jobs:
           dvc dag
           dvc repro --dry
           git fetch --prune
+          git config --global --add safe.directory /__w/pycon-za-test/pycon-za-test
 
           echo "# CML Report" > report.md
           dvc dag >> report.md
