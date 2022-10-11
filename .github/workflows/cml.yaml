@@ -8,13 +8,15 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - uses: iterative/setup-cml@v1
+      - uses: iterative/setup-dvc@v1
       - name: train_model
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
+          dvc dag
           dvc repro
-
-          # cat metrics.txt >> report.md
-          # cat dvc dag >> report.md
-          # cml send-comment report.md
+          echo "# My Report" > report.md
+          dvc metrics diff master >> report.md
+          dvc dag >> report.md
+          cml send-comment report.md
