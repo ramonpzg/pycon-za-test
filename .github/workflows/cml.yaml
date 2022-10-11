@@ -20,7 +20,6 @@ jobs:
           dvc dag
           dvc repro # --dry
           # git fetch --prune
-            
           echo "# CML Report" > report.md
           dvc dag >> report.md
           dvc metrics diff --show-md master >> report.md
