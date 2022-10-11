@@ -9,6 +9,8 @@ jobs:
     container: docker://dvcorg/cml:0-dvc2-base1
     steps:
       - uses: actions/checkout@v3
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: cml_run
         run: |
           pip install -r requirements.txt
@@ -16,7 +18,6 @@ jobs:
           dvc dag
           dvc repro --dry
           git fetch --prune
-          git config --global --add safe.directory /__w/pycon-za-test/pycon-za-test
 
           echo "# CML Report" > report.md
           dvc dag >> report.md
