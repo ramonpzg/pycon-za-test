@@ -16,8 +16,7 @@ jobs:
           pip install -r requirements.txt
           dvc dag
           dvc repro
-
-          # echo "# My Report" > report.md
-          # cat metrics.json >> report.md
-          # cat dvc dag >> report.md
-          # cml send-comment report.md
+          echo "# My Report" > report.md
+          cat metrics.json >> report.md
+          cat dvc dag >> report.md
+          cml send-comment report.md
